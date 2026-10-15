@@ -25,7 +25,7 @@ CSS global original do svelte
 ---
 
 ### tarefas
-
+- ALTERAR buddy-list -> OSExplorer 
 - terminar migracao do front
 - comecar a estruturar o java
 - usar vault nas chaves

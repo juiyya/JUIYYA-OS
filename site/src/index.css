@@ -1,0 +1,281 @@
+/*config base e desktop */
+body {
+  margin: 0;
+  padding: 0;
+  background: url('/wallpapers/fundo6.jpg') center/cover no-repeat fixed;
+  background-color: #008080; 
+  font-family: Tahoma, Arial, sans-serif;
+  font-size: 13px;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.btn-clear {
+  background: transparent;
+  border: none;
+  font: inherit;
+  text-align: left;
+  width: 100%;
+  cursor: pointer;
+  color: inherit;
+  padding: 5px 15px;
+}
+
+.desktop {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/*icones da area de trabalho */
+.desktop-icons {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 1;
+}
+
+.desktop-icons.right-side {
+  left: auto;
+  right: 15px;
+  flex-direction: row;
+  gap: 15px;
+  width: auto;
+  height: auto;
+}
+
+.desktop-icon {
+  background: transparent;
+  border: 1px dotted transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  width: 80px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.desktop-icon:hover {
+  background-color: rgba(0, 0, 128, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.desktop-icon img {
+  width: 48px;
+  height: 48px;
+  image-rendering: pixelated;
+  object-fit: contain;
+}
+
+.desktop-icon span {
+  color: white;
+  font-size: 11px;
+  text-align: center;
+  word-wrap: break-word;
+  text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+}
+
+/* classe mae de todas as janelas */
+.aim-window {
+  position: absolute;
+  background-color: #c0c0c0;
+  border: 5px solid;
+  border-color: #fff #000000a1 #0000009d #fff;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  max-width: 95vw;  
+  max-height: 90vh; 
+  box-sizing: border-box; 
+}
+
+.minimized-window {
+  display: none !important;
+}
+
+/* tamanhos especificos de cada janela*/
+.buddy-list { width: 448px; height: 600px; }
+.chat-window { width: 600px; height: 600px; }
+.folder-window { width: 470px; height: 600px; }
+.welcome-window { width: 700px; height: 450px; }
+.browser-window { width: 800px; height: 600px; }
+.notepad-window { width: 600px; height: 450px; box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.4); }
+.tarefas { width: 400px; height: 400px; }
+.terminal-window { width: 500px; height: 350px; } /* Adicionado para o terminal */
+.image-viewer-window { min-width: 300px; max-width: 80vw; padding-bottom: 2px; box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.4); }
+
+/* header e botoes das janelas */
+.title-bar {
+  background: linear-gradient(to right, #000080, #0e7cc5);
+  color: white;
+  padding: 3px 6px;
+  margin-bottom: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
+
+.menu-bar {
+  background-color: #ece9d8;
+  padding: 2px 8px;
+  border-bottom: 2px solid #aca899;
+  color: #000;
+}
+
+.menu-bar span {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.menu-bar span:hover {
+  background-color: #316ac5;
+  color: white;
+}
+
+.window-content {
+  background-color: white;
+  margin: 0;
+  flex-grow: 1;
+  border: 2px solid;
+  border-color: #808080 #fff #fff #808080;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.controls { display: flex; gap: 3px; }
+.controls button {
+  background-color: #c0c0c0;
+  color: black;
+  border: 3px solid;
+  border-color: #fff #000000a4 #00000060 #fff;
+  width: 22px;
+  height: 22px;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.controls button:active { border-color: #000000e0 #fff #fff #000000ec; }
+
+/* SCROLLBARS */
+::-webkit-scrollbar { width: 14px; background: #dfdfdf; border-left: 1px solid #fff; }
+::-webkit-scrollbar-thumb { background: #c0c0c0; border: 1px outset #fff; }
+::-webkit-scrollbar-thumb:active { border: 2px inset #fff; }
+::-webkit-scrollbar-button { background: #c0c0c0; border: 2px outset #fff; display: block; height: 16px; }
+
+/* barras de status e endereco */
+.footer-bar {
+  background-color: #c0c0c0;
+  border: 2px solid transparent;
+  padding: 2px 5px;
+  font-size: 11px;
+  margin: 3px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.address-bar {
+  background-color: #ece9d8;
+  padding: 4px 8px;
+  border-bottom: 2px solid #aca899;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #000;
+}
+
+.address-input {
+  background-color: white;
+  border: 2px inset #fff;
+  border-right-color: #aca899;
+  border-bottom-color: #aca899;
+  flex-grow: 1;
+  padding: 2px 5px;
+  display: flex;
+  align-items: center;
+}
+
+/* detalhes internos (notepad e folder) */
+.notepad-content { padding: 20px; font-family: 'Courier New', Courier, monospace; font-size: 14px; display: block; }
+.notepad-content p { margin: 5px 0; line-height: 1.5; }
+.folder-content { padding: 15px; display: flex; flex-direction: column; gap: 20px; }
+.file-item { display: flex; flex-direction: column; gap: 2px; margin-bottom: 15px; }
+.file-main-btn {
+  background: transparent; border: none; font: inherit; color: inherit; cursor: pointer;
+  display: flex; gap: 15px; align-items: flex-start; padding: 6px; width: 100%; text-align: left; border-radius: 3px;
+}
+.file-main-btn:hover { background-color: #e0e8f3; }
+.file-icon { font-size: 32px; line-height: 1; }
+.file-info { display: flex; flex-direction: column; gap: 5px; }
+.file-name { font-weight: bold; color: #000; font-size: 14px; }
+.file-desc { color: #333; line-height: 1.4; }
+.file-link-wrapper { padding-left: 53px; }
+.file-link { color: blue; text-decoration: none; font-weight: bold; }
+.file-link:hover { text-decoration: underline !important; }
+
+/* estrutura do chat (msn) */
+.category { font-weight: bold; padding: 5px; background-color: #f5f5f5; border-bottom: 2px solid #e0e0e0; }
+button.category { border-top: none; border-left: none; border-right: none; }
+.buddy { padding: 5px 15px; cursor: pointer; display: flex; align-items: center; }
+.buddy:hover { background-color: #e0e8f3; }
+.chat-history { flex-grow: 1; padding: 10px; border-bottom: 2px groove #fff; overflow-y: auto; }
+.message { margin-bottom: 8px; }
+.username { color: #0000ff; font-weight: bold; margin-right: 5px; }
+.message.info { color: #808080; font-style: italic; text-align: center; margin-top: 15px; }
+.chat-input-area { height: 120px; background-color: #ece9d8; display: flex; flex-direction: column; font: inherit; }
+.format-bar { padding: 2px 8px; border-bottom: 1px solid #aca899; background-color: #ece9d8; }
+.format-bar b, .format-bar i, .format-bar u { margin-right: 8px; cursor: pointer; }
+.chat-input { background-color: white; flex-grow: 1; border: 1px inset #fff; margin: 4px; padding: 5px; color: #808080; }
+.send-row { display: flex; justify-content: flex-end; padding: 0 4px 4px 0; }
+.send-btn { background-color: #ece9d8; border: 2px outset #fff; padding: 2px 15px; cursor: pointer; }
+.send-btn:active { border-style: inset; }
+
+/* taskbar e utilitarios */
+.taskbar {
+  position: fixed; bottom: 0; left: 0; width: 100%; height: 47px;
+  background-color: #c0c0c0; border-top: 2px solid #fff; display: flex;
+  align-items: center; padding: 2px; box-sizing: border-box; z-index: 9999;
+}
+.start-btn {
+  height: 100%; font-weight: bold; color: black; font: inherit; font-size: 14px;
+  display: flex; align-items: center; gap: 4px; padding: 0 6px; background-color: #c0c0c0;
+  border: 2px solid; border-color: #fff #000000a1 #00000086 #fff; cursor: pointer;
+}
+.start-btn:active { border-color: #000 #fff #fff #000; }
+.start-btn .pixel-icon { width: 20px; height: 20px; }
+.taskbar-items { flex-grow: 1; display: flex; gap: 4px; padding: 0 6px; overflow-x: hidden; }
+.taskbar-btn {
+  height: 40px; min-width: 120px; max-width: 160px; font-size: 12px; padding: 0 6px;
+  display: flex; align-items: center; gap: 6px; background-color: #c0c0c0;
+  cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  border: 2px solid; border-color: #fff #000000a1 #00000086 #fff;
+}
+.taskbar-btn.active { border-style: inset; background-color: #d4d4d4; font-weight: bold; }
+.taskbar-btn .pixel-icon { width: 16px; height: 16px; flex-shrink: 0; }
+.taskbar-btn span { overflow: hidden; text-overflow: ellipsis; }
+.tray {
+  height: 100%; display: flex; gap: 6px; align-items: center; padding: 0 5px;
+  border: 4px inset #fff; background-color: #c0c0c0; font-size: 12px; margin-left: auto;
+}
+.tray .pixel-icon { width: 20px; height: 20px; }
+.tray span { margin-left: 4px; }
+
+/* menu iniciar e quick launch */
+.quick-launch { display: flex; align-items: center; gap: 2px; padding: 0 6px; margin: 0 4px; border-left: 1px solid #fff; border-right: 1px solid #808080; }
+.quick-launch-btn { background: transparent; border: 1px solid transparent; padding: 4px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.quick-launch-btn:hover { border-color: #fff #000 #000 #fff; }
+.quick-launch-btn:active { border-color: #000 #fff #fff #000; padding: 5px 3px 3px 5px; }
+.quick-launch-btn .pixel-icon { width: 24px; height: 24px; }
+.pixel-icon { width: 16px; height: 16px; image-rendering: pixelated; display: inline-block; }
+.pixel-icon-lg { width: 32px; height: 32px; image-rendering: pixelated; }
